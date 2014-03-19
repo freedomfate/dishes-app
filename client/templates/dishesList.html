@@ -23,11 +23,9 @@
 		</tr>
 	</thead>
 	<tr ng-repeat="dish in contents">
-		<td width="30%">{{dish.name}}</td>
-		<td width="70%">
-			<ul>
-				<li ng-repeat="ing in dish.ingredients">{{ing}}</li>
-			</ul>
+		<td width="40%">{{dish.name}}</td>
+		<td width="60%">
+			{{dish.ingredients}}
 		</td>
 	</tr>
 </table>

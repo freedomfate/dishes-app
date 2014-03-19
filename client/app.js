@@ -21,8 +21,12 @@ dishApp.controller('dishesListController', function ($scope, $http) {
      $scope.loadDishes = function () {
           $http.get ('/api/dishes', {params: {filter: $scope.expression}}).
                success(function (data) {
-                    
                     $scope.dishes = data.dishes;
+
+                    for (var i = 0; i < $scope.dishes.length; i++) {
+                         $scope.dishes[i].ingredients = $scope.dishes[i].ingredients.join(', ');
+                    }
+
                     $scope.pagination.totalPages = Math.ceil($scope.dishes.length / $scope.pagination.count);
                     $scope.pagination.pages = [];
 
@@ -51,7 +55,7 @@ dishApp.controller('dishesListController', function ($scope, $http) {
      $scope.$watch('pagination.currentPage', $scope.setPage());
 
      $scope.nextPage = function () {
-          if ($scope.pagination.currentPage < $scope.pagination.totalPages) {
+          if ($scope.pagination.currentPage < $scope.pagination.totalPages - 1) {
                $scope.pagination.currentPage++;
                $scope.setPage($scope.pagination.currentPage);
           }

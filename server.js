@@ -16,6 +16,7 @@ app.get('/api/dishes', dishes.findAll);
 app.get('/api/dishes/:id', dishes.findById);
 app.get('*', function(req, res) {
 	res.sendfile('./client/index.html');
+});
 
 app.listen(3000);
 console.log('Listen on port 3000...');

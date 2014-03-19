@@ -14,3 +14,7 @@
 .message {
 	margin-top: 20px;
 }
+
+thead th{
+	text-align: center;
+}
