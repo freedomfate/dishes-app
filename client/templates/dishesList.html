@@ -1,0 +1,34 @@
+<div class="pagination-layout">
+	<ul class="pagination" ng-show="pagination.totalPages > 1">
+		<li><a ng-click="firstPage()">&laquo;</a></li>
+		<li><a ng-click="prevPage(n)">&lsaquo;</a></li>
+		<li ng-repeat="n in pagination.pages">
+			<a class="active" ng-click="setPage(n)">{{n + 1}}</a>
+		</li>
+		<li><a ng-click="nextPage()">&rsaquo;</a></li>
+		<li><a ng-click="lastPage()">&raquo;</a></li>
+	</ul>
+</div>
+
+<div class="filter-layout">
+	Фильтр: <input ng-model="expression" ng-change="loadDishes()">
+	<p class="message" ng-show="!contents.length">Блюд по данному фильру не найдено, попробуйте снова.</p>
+</div>
+
+<table class="table table-hover" ng-show="contents.length != 0">
+	<thead>
+		<tr>
+			<th>Наименование блюда</th>
+			<th>Ингредиенты</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="dish in contents">
+		<td width="30%">{{dish.name}}</td>
+		<td width="70%">
+			<ul>
+				<li ng-repeat="ing in dish.ingredients">{{ing}}</li>
+			</ul>
+		</td>
+	</tr>
+</table>
+

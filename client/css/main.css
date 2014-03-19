@@ -1,0 +1,16 @@
+.page {
+	width: 960px;
+	margin: 0 auto;
+}
+.pagination-layout {
+	float: right;
+	height: 70px;
+}
+.filter-layout {
+	float: left;
+	height: 70px;
+	margin-top: 20px;
+}
+.message {
+	margin-top: 20px;
+}
